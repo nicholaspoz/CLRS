@@ -4,13 +4,21 @@ import clrs.algorithms.utilities.DivideAndConquerHelper;
 
 public class OrderedStatistic {
 
-	public int findDesiredElement(int[] a, int index) {
+	/**
+	 * Performs the average-case linear selection algorithm for finding the i'th
+	 * greatest element of a[]
+	 * 
+	 * @param a
+	 * @param i
+	 * @return
+	 */
+	public int findDesiredElement(int[] a, int i) {
 		// Validate input
-		if (index > a.length) {
+		if (i > a.length || i < 0) {
 			throw new IllegalArgumentException("index must be within the bounds of the array");
 		}
 
-		return randomizedSelect(a, 0, a.length - 1, index);
+		return randomizedSelect(a, 0, a.length - 1, i);
 	}
 
 	/**

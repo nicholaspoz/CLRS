@@ -3,8 +3,8 @@ package clrs.algorithms.utilities;
 public class DivideAndConquerHelper {
 
 	/**
-	 * Subroutine for partitioning an array into two based on a randomly
-	 * selected element. Described in CLRS 7.3
+	 * Partitions an array into two based on a randomly selected element.
+	 * Described in CLRS 7.3
 	 * 
 	 * @param a
 	 *            array being searched/sorted/etc.
@@ -12,7 +12,7 @@ public class DivideAndConquerHelper {
 	 *            lower bound index of sub array to partition
 	 * @param r
 	 *            upper bound index of sub array to partition
-	 * @return the index of the partitioned
+	 * @return the index of the partitioned element
 	 */
 	public static int randomizedPartition(int[] a, int p, int r) {
 		// Select random element in a[p..r] to partition and exchange with a[r]
@@ -28,7 +28,7 @@ public class DivideAndConquerHelper {
 		int q = p - 1;
 		for (int curr = p; curr <= r - 1; curr++) {
 			if (a[curr] <= part) {
-				// exchange q+1 and i
+				// exchange q+1 and curr
 				q++;
 				temp = a[curr];
 				a[curr] = a[q];
@@ -36,7 +36,7 @@ public class DivideAndConquerHelper {
 			}
 		}
 
-		// exchange i+1 and q
+		// exchange q+1 and r
 		q++;
 		a[r] = a[q];
 		a[q] = part;
