@@ -2,9 +2,9 @@ package clrs.datastructures.array;
 
 public class Heap {
 
-	// --------------------
-	// HeapSort Functions
-	// --------------------
+	// -------------------------------
+	// Max Heap Functions for HeapSort
+	// -------------------------------
 
 	/**
 	 * Initializes a[] to a max heap by calling maxHeapify on all internal tree
@@ -28,7 +28,9 @@ public class Heap {
 	 * @param a
 	 *            the array being sorted
 	 * @param i
+	 *            the index of the array to heapify
 	 * @param heapEnd
+	 *            the upper bound index of the sub array to treat as heap
 	 */
 	public static void maxHeapify(int[] a, int i, int heapEnd) {
 		int left = leftChild(i);
@@ -46,16 +48,18 @@ public class Heap {
 		}
 
 		if (largest != i) {
+			// exchange a[i] and a[largest]
 			int temp = a[largest];
 			a[largest] = a[i];
 			a[i] = temp;
+
 			maxHeapify(a, largest, heapEnd);
 		}
 	}
 
-	// ------------------------
-	// Priority Queue Functions
-	// ------------------------
+	// ----------------------------
+	// Max Priority Queue Functions
+	// ----------------------------
 
 	// ---------------
 	// Heap Properties

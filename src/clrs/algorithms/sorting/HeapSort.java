@@ -3,8 +3,8 @@ package clrs.algorithms.sorting;
 import clrs.datastructures.array.Heap;
 
 /**
- * This algorithm utilizes the properties of a Heap. The Heap data structure and
- * its operations are implemented in the Heap class
+ * This algorithm utilizes the properties of a Heap. The Heap operations are
+ * implemented in the Heap class.
  * 
  */
 public class HeapSort extends SortingAlgorithm {
