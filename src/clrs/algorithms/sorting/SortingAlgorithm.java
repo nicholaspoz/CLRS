@@ -1,10 +1,13 @@
 package clrs.algorithms.sorting;
 
-public abstract class SortingAlgorithm {
+import clrs.algorithm.Algorithm;
+
+public abstract class SortingAlgorithm extends Algorithm<int[]> {
 	protected final static int DEFAULT_MAX_VALUE = 1000;
 
 	protected final int n;
 	protected final int maxValue;
+	protected int[] array;
 
 	public SortingAlgorithm(int n) {
 		this.n = n;
@@ -16,39 +19,24 @@ public abstract class SortingAlgorithm {
 		this.maxValue = maxValue;
 	}
 
-	/**
-	 * perform the sorting operation and return a sorted array
-	 * 
-	 * @return the result of the algorithm represented as an array
-	 */
-	public abstract int[] sort();
-
-	/**
-	 * Build the necessary set of randomized values for the algorithm
-	 */
-	public abstract void initializeDataStructure();
-
-	public void runAlgorithm() {
-		System.out.print(this.toString() + ": ");
-
-		initializeDataStructure();
-		long startTime = System.nanoTime();
-		int[] a = sort();
-		double elapsedSeconds = (double) (System.nanoTime() - startTime) / 1000000000.0;
-
-		// Verify is sorted and print results
-		String message = "SUCCEEDED";
-		int curr = a[0];
-		for (int i = 1; i < a.length; i++) {
-			if (curr > a[i]) {
-				message = "FAILED";
-				break;
-			}
-			curr = a[i];
+	@Override
+	public void initializeData() {
+		array = new int[n];
+		for (int i = 0; i < n; i++) {
+			array[i] = (int) (Math.random() * (maxValue + 1));// inclusive
 		}
+	}
 
-		System.out.println(message + ", " + elapsedSeconds);
-
+	@Override
+	public boolean verify(int[] data) {
+		int curr = data[0];
+		for (int i = 1; i < data.length; i++) {
+			if (curr > data[i]) {
+				return false;
+			}
+			curr = data[i];
+		}
+		return true;
 	}
 
 }

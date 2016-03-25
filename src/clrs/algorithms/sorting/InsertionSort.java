@@ -1,13 +1,13 @@
 package clrs.algorithms.sorting;
 
-public class InsertionSort extends ArraySortingAlgorithm {
+public class InsertionSort extends SortingAlgorithm {
 	public InsertionSort(int n) {
 		super(n);
 	}
 
 	@Override
-	public int[] sort() {
-		// Iterate from 1->(n-1)
+	public int[] run() {
+		// Iterate from 1 to (n-1)
 		for (int i = 1; i < array.length; i++) {
 			// grab the ith element
 			int temp = array[i];

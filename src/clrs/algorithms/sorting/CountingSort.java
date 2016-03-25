@@ -1,13 +1,13 @@
 package clrs.algorithms.sorting;
 
-public class CountingSort extends ArraySortingAlgorithm {
+public class CountingSort extends SortingAlgorithm {
 
 	public CountingSort(int n, int maxValue) {
 		super(n, maxValue);
 	}
 
 	@Override
-	public int[] sort() {
+	public int[] run() {
 		// initialize the counts array
 		int counts[] = new int[maxValue + 1];
 		for (int i = 0; i < counts.length; i++) {

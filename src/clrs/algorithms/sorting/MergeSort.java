@@ -1,13 +1,13 @@
 package clrs.algorithms.sorting;
 
-public class MergeSort extends ArraySortingAlgorithm {
+public class MergeSort extends SortingAlgorithm {
 
 	public MergeSort(int n) {
 		super(n);
 	}
 
 	@Override
-	public int[] sort() {
+	public int[] run() {
 		mergeSort(array, 0, array.length - 1);
 		return array;
 	}

@@ -1,24 +1,46 @@
 package clrs.algorithms.orderstatistic;
 
+import java.util.Arrays;
+
+import clrs.algorithm.Algorithm;
 import clrs.algorithms.utilities.DivideAndConquerHelper;
 
-public class OrderedStatistic {
+public class OrderedStatistic extends Algorithm<Integer> {
+	private int i, n;
+	private int array[];
 
-	/**
-	 * Performs the average-case linear selection algorithm for finding the i'th
-	 * greatest element of a[]
-	 * 
-	 * @param a
-	 * @param i
-	 * @return
-	 */
-	public int findDesiredElement(int[] a, int i) {
+	public OrderedStatistic(int n, int i) {
 		// Validate input
-		if (i > a.length || i < 0) {
+		if (i > n || i < 0) {
 			throw new IllegalArgumentException("index must be within the bounds of the array");
 		}
+		this.n = n;
+		this.i = i;
+	}
 
-		return randomizedSelect(a, 0, a.length - 1, i);
+	@Override
+	public void initializeData() {
+		array = new int[n];
+		for (int i = 0; i < n; i++) {
+			array[i] = (int) (Math.random() * 1000);// inclusive
+		}
+
+	}
+
+	@Override
+	public Integer run() {
+		// Perform randomizedSelect on the entire array
+		return randomizedSelect(array, 0, array.length - 1, i);
+	}
+
+	@Override
+	public boolean verify(Integer data) {
+		Arrays.sort(array);
+		if (data != array[i - 1]) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	/**
@@ -35,13 +57,13 @@ public class OrderedStatistic {
 	 *            the index of the desired element
 	 * @return the value of the index-ordered statistic
 	 */
-	private int randomizedSelect(int[] a, int p, int r, int i) {
+	public static int randomizedSelect(int[] a, int p, int r, int i) {
 		// Recursive Base Case: array of single element
 		if (p == r) {
 			return a[p];
 		}
 
-		// Partition
+		// Partition using randomizedPartition subroutine
 		int q = DivideAndConquerHelper.randomizedPartition(a, p, r);
 
 		int k = q - p + 1;
@@ -52,6 +74,11 @@ public class OrderedStatistic {
 		} else { // If i > k, search the right sub array
 			return randomizedSelect(a, q + 1, r, i - k);
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "OrderStatistic";
 	}
 
 }

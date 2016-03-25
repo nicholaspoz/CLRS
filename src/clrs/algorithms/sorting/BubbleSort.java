@@ -1,14 +1,13 @@
 package clrs.algorithms.sorting;
 
-public class BubbleSort extends ArraySortingAlgorithm {
+public class BubbleSort extends SortingAlgorithm {
 
 	public BubbleSort(int n) {
 		super(n);
 	}
 
 	@Override
-	public int[] sort() {
-		// shrink the array from length to 2 elements
+	public int[] run() {
 		for (int i = array.length - 1; i > 0; i--) {
 			int j = 0;
 			while (j < i) {
@@ -20,7 +19,7 @@ public class BubbleSort extends ArraySortingAlgorithm {
 				j++;
 			}
 		}
-		
+
 		return array;
 	}
 
