@@ -1,5 +1,7 @@
 package clrs.algorithms.sorting;
 
+import clrs.algorithms.utilities.DivideAndConquerHelper;
+
 public class QuickSort extends ArraySortingAlgorithm {
 
 	public QuickSort(int n) {
@@ -28,7 +30,7 @@ public class QuickSort extends ArraySortingAlgorithm {
 		if (p >= q) {
 			return;
 		}
-		int div = partitionClrs(a, p, q);
+		int div = DivideAndConquerHelper.randomizedPartition(a, p, q);
 		quickSort(a, p, div - 1);
 		quickSort(a, div + 1, q);
 	}
@@ -51,14 +53,16 @@ public class QuickSort extends ArraySortingAlgorithm {
 		for (int j = p; j <= q - 1; j++) {
 			if (a[j] <= part) {
 				// exchange i+1 and j
+				i++;
 				temp = a[j];
-				a[j] = a[++i];
+				a[j] = a[i];
 				a[i] = temp;
 			}
 		}
 
 		// exchange i+1 and q
-		a[q] = a[++i];
+		i++;
+		a[q] = a[i];
 		a[i] = part;
 
 		return i;
