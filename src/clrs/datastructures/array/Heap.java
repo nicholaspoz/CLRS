@@ -1,9 +1,23 @@
 package clrs.datastructures.array;
 
 public class Heap {
+	/*
+	 * private int[] array; private int heapSize;
+	 * 
+	 * private Heap(int[] array, int heapSize) { this.array = array;
+	 * this.heapSize = heapSize; }
+	 * 
+	 * public int getHeapSize() { return this.heapSize; }
+	 * 
+	 * public void incrementHeapSize() { this.heapSize++; }
+	 * 
+	 * public void decrementHeapSize() { this.heapSize--; }
+	 * 
+	 * public int[] getArray() { return this.array; }
+	 */
 
 	// -------------------------------
-	// Max Heap Functions for HeapSort
+	// Static Max Heapifying Functions
 	// -------------------------------
 
 	/**
@@ -13,12 +27,14 @@ public class Heap {
 	 * @param a
 	 *            the array being sorted
 	 */
-	public static void buildMaxHeap(int[] a) {
+	public static void /* Heap */ buildMaxHeap(int[] a) {
 		int internal = (a.length - 1) / 2;
 
 		for (int i = internal; i >= 0; i--) {
 			maxHeapify(a, i, a.length - 1);
 		}
+
+		// return new Heap(a, a.length);
 	}
 
 	/**
@@ -57,9 +73,15 @@ public class Heap {
 		}
 	}
 
-	// ----------------------------
-	// Max Priority Queue Functions
-	// ----------------------------
+	// -----------------------------
+	// Max Priority Queue Operations
+	// -----------------------------
+
+	public static int heapMaximum(int[] heap) {
+		return heap[0];
+	}
+
+	// TODO implement priority queue
 
 	// ---------------
 	// Heap Properties
