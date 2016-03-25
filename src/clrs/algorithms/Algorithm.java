@@ -1,4 +1,4 @@
-package clrs.algorithm;
+package clrs.algorithms;
 
 public abstract class Algorithm<T> {
 

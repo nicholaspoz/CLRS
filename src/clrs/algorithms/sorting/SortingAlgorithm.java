@@ -1,6 +1,6 @@
 package clrs.algorithms.sorting;
 
-import clrs.algorithm.Algorithm;
+import clrs.algorithms.Algorithm;
 
 public abstract class SortingAlgorithm extends Algorithm<int[]> {
 	protected final static int DEFAULT_MAX_VALUE = 1000;

@@ -2,7 +2,7 @@ package clrs.algorithms.orderstatistic;
 
 import java.util.Arrays;
 
-import clrs.algorithm.Algorithm;
+import clrs.algorithms.Algorithm;
 import clrs.algorithms.utilities.DivideAndConquerHelper;
 
 public class OrderedStatistic extends Algorithm<Integer> {
