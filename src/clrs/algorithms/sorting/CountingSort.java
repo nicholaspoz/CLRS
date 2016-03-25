@@ -1,6 +1,4 @@
-package clrs.algorithms.sorting.linear;
-
-import clrs.algorithms.sorting.ArraySortingAlgorithm;
+package clrs.algorithms.sorting;
 
 public class CountingSort extends ArraySortingAlgorithm {
 

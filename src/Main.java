@@ -3,12 +3,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import clrs.algorithms.sorting.BubbleSort;
+import clrs.algorithms.sorting.CountingSort;
+import clrs.algorithms.sorting.InsertionSort;
+import clrs.algorithms.sorting.MergeSort;
+import clrs.algorithms.sorting.QuickSort;
 import clrs.algorithms.sorting.SortingAlgorithm;
-import clrs.algorithms.sorting.linear.CountingSort;
-import clrs.algorithms.sorting.nlogn.MergeSort;
-import clrs.algorithms.sorting.nlogn.QuickSort;
-import clrs.algorithms.sorting.nsquared.BubbleSort;
-import clrs.algorithms.sorting.nsquared.InsertionSort;
 
 public class Main {
 

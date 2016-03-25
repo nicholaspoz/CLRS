@@ -1,6 +1,4 @@
-package clrs.algorithms.sorting.nlogn;
-
-import clrs.algorithms.sorting.ArraySortingAlgorithm;
+package clrs.algorithms.sorting;
 
 public class QuickSort extends ArraySortingAlgorithm {
 

@@ -1,6 +1,4 @@
-package clrs.algorithms.sorting.nsquared;
-
-import clrs.algorithms.sorting.ArraySortingAlgorithm;
+package clrs.algorithms.sorting;
 
 public class BubbleSort extends ArraySortingAlgorithm {
 
