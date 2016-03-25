@@ -5,6 +5,7 @@ import java.util.List;
 
 import clrs.algorithms.sorting.BubbleSort;
 import clrs.algorithms.sorting.CountingSort;
+import clrs.algorithms.sorting.HeapSort;
 import clrs.algorithms.sorting.InsertionSort;
 import clrs.algorithms.sorting.MergeSort;
 import clrs.algorithms.sorting.QuickSort;
@@ -22,6 +23,7 @@ public class Main {
 		// O(n*log(n))
 		algorithms.add(new MergeSort(n));
 		algorithms.add(new QuickSort(n));
+		algorithms.add(new HeapSort(n));
 		// O(n)
 		algorithms.add(new CountingSort(n, 200));
 
