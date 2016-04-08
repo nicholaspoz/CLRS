@@ -54,6 +54,7 @@ public class RodCutting {
 
 		int q = Integer.MIN_VALUE;
 		for (int i = 1; i <= n; i++) {
+			//The recursive call finds the optimal revenue of the rest of the rod
 			q = Math.max(q, prices[i] + cutRodMemoizedAux(prices, n - i, memo));
 		}
 
@@ -81,12 +82,16 @@ public class RodCutting {
 		}
 		memo[0] = 0;
 
-		for (int j = 1; j <= n; j++) {
+		int[] soln = new int[n + 1];
+
+		//Build memo from the bottom up
+		for (int i = 1; i <= n; i++) {
 			int q = Integer.MIN_VALUE;
-			for (int i = 1; i <= j; i++) {
-				q = Math.max(q, prices[i] + memo[j - i]);
+			for (int j = 1; j <= i; j++) {
+				//The memo is the solved subproblem up to i
+				q = Math.max(q, prices[j] + memo[i - j]);
 			}
-			memo[j] = q;
+			memo[i] = q;
 		}
 
 		return memo[n];
