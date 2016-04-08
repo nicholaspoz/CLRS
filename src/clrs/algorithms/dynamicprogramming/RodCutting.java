@@ -54,10 +54,31 @@ public class RodCutting {
 		return q;
 	}
 
-	public static void main(String[] args) {
-		int[] p = { 1, 5, 8, 9, 10, 17, 17, 20, 24, 30 };
+	private static int cutRodBottomUp(int[] prices, int n) {
+		int[] memo = new int[n + 1];
+		for (int i = 0; i <= n; i++) {
+			memo[i] = Integer.MIN_VALUE;
+		}
+		memo[0] = 0;
 
-		System.out.println(cutRodMemoized(p, 7));// 18
+		for (int j = 1; j <= n; j++) {
+			int q = Integer.MIN_VALUE;
+			for (int i = 1; i <= j; i++) {
+				q = Math.max(q, prices[i - 1] + memo[j - i]);
+			}
+			memo[j] = q;
+		}
+
+		return memo[n];
+	}
+
+	public static void main(String[] args) {
+		int[] prices = { 1, 5, 8, 9, 10, 17, 17, 20, 24, 30 };
+
+		int n = 7;
+
+		System.out.println("Top down: " + cutRodMemoized(prices, n));// 18
+		System.out.println("Bottom up: " + cutRodBottomUp(prices, n));
 
 	}
 
